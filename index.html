@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>top ten cute animalssss</title>
+    <style>
+        body {
+            text-align: center;
+            background: #333;
+            font-family: 'Arial', sans-serif;
+            padding: 20px;
+            position: relative;
+            color: white;
+        }
+        h1 {
+            color: #ff1a1a;
+            font-size: 2.5em;
+            margin: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        .hearts {
+            font-size: 40px;
+            color: #ff4d4d;
+            margin: 20px;
+        }
+        .buttons {
+            margin-top: 30px;
+            display: none;
+        }
+        button {
+            font-size: 1.5em;
+            padding: 15px 30px;
+            margin: 15px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        #yes {
+            background: #ff4d4d;
+            color: white;
+        }
+        #no {
+            background: #e6e6e6;
+            color: #666;
+        }
+        #no:hover {
+            transform: scale(0.95);
+        }
+        .hidden {
+            display: none;
+        }
+        .gif {
+            margin-top: 20px;
+            max-width: 10%; /* Very small GIF size */
+            height: auto;
+        }
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2em;
+            }
+            .buttons button {
+                font-size: 1.2em;
+                padding: 12px 24px;
+            }
+            .hearts {
+                font-size: 35px;
+            }
+        }
+        .entrance-message {
+            font-size: 2em;
+            color: #ff4d4d;
+            margin-top: 30px;
+            font-weight: bold;
+            text-shadow: 0 0 10px rgba(255, 0, 0, 0.7), 0 0 20px rgba(255, 0, 0, 0.5);
+            animation: flicker 1.5s infinite;
+        }
+        .tap-button {
+            font-size: 1.3em;
+            padding: 10px 20px;
+            background: #ff4d4d;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            margin-top: 20px;
+            animation: flicker 1.5s infinite;
+        }
+        @keyframes flicker {
+            0% { opacity: 0.5; }
+            50% { opacity: 1; }
+            100% { opacity: 0.5; }
+        }
+        .romantic-bg {
+            background: #ff99cc;
+            transition: background 1s ease-in-out;
+            height: 100%;
+        }
+        .error-message {
+            font-size: 1.5em;
+            color: #ff4d4d;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div id="entrance" class="entrance-message">
+        Gooodd evenninggg finneee shyytttt...😈😈
+    </div>
+
+    <div id="tapButtonContainer" style="margin-top: 30px;">
+        <button class="tap-button" onclick="startValentine()">Tap here for a surprise</button>
+    </div>
+
+    <div class="hearts">❤️❤️❤️</div>
+    <h1 id="valentineQuestion" style="display: none;">Zamiyah, Will You Be My Valentine? 🥺</h1>
+    <div class="hearts" id="heartsAfterTap" style="display: none;">💖🌹💖</div>
+
+    <!-- Hidden "Are you sure?" section -->
+    <div id="doubt" class="hidden gif">
+        <img src="https://media1.tenor.com/m/g1Y_qxBqWr4AAAAd/nuh-uh-nuh-uh-meme.gif" alt="Puppy Eyes">
+        <p>Wait... are you absolutely sure? 🥺</p>
+    </div>
+
+    <div class="buttons">
+        <button id="yes" onclick="revealLove()">YES!!!</button>
+        <button id="no" onclick="showDoubt()">NO</button>
+    </div>
+
+    <!-- Hidden success message -->
+    <div id="success" class="hidden gif">
+        <img src="https://media.tenor.com/OEq_5WnGoecAAAAM/hug-love.gif" alt="Bear Hug">
+        <h2>YAY! I LOVVVEEEE YOUUU SOOO MUCHHH PRINCESSSSS💥💖</h2>
+    </div>
+
+    <div id="error" class="hidden error-message">
+        Try again! ❌
+    </div>
+
+    <script>
+        function startValentine() {
+            // Change background color to a romantic pink
+            document.body.classList.add('romantic-bg');
+
+            // Hide entrance and tap button
+            document.getElementById("entrance").style.display = "none";
+            document.getElementById("tapButtonContainer").style.display = "none";
+            
+            // Show Valentine question and hearts
+            document.getElementById("valentineQuestion").style.display = "block";
+            document.getElementById("heartsAfterTap").style.display = "block";
+
+            // Show buttons for "YES" and "NO"
+            document.querySelector(".buttons").style.display = "block";
+        }
+
+        function showDoubt() {
+            // Show the "NO" doubt GIF
+            document.getElementById("doubt").classList.remove("hidden");
+
+            // Display error message
+            setTimeout(() => {
+                document.getElementById("doubt").classList.add("hidden");
+                document.getElementById("error").classList.remove("hidden");
+                setTimeout(() => {
+                    document.getElementById("error").classList.add("hidden");
+                }, 1500);
+            }, 2000);
+        }
+
+        function revealLove() {
+            document.getElementById("success").classList.remove("hidden");
+            document.querySelector(".buttons").style.display = "none";
+            document.querySelector(".hearts").innerHTML = '💕💞💗💓💝💘';
+        }
+    </script>
+</body>
+</html>
